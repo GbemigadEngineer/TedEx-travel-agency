@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Travel Agency Landing Page</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- Font Awesome for icons (optional) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header class="navbar">
+      <div class="navbar-container">
+        <!-- Logo -->
+        <a href="#" class="logo">
+          <img
+            src="public/assets/logo.svg"
+            alt="Travel Agency Logo"
+            class="logo-img"
+          />
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="desktop-menu">
+          <ul class="nav-links">
+            <li><a href="#home" class="nav-link">Home</a></li>
+            <li><a href="#about" class="nav-link">About Us</a></li>
+            <li><a href="#services" class="nav-link">Services</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+          </ul>
+        </nav>
+
+        <!-- Mobile Hamburger Menu -->
+        <button class="hamburger" aria-label="Toggle navigation">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+
+      <!-- Mobile Navigation (Hidden by default) -->
+      <nav class="mobile-menu">
+        <ul class="nav-links">
+          <li><a href="#home" class="nav-link">Home</a></li>
+          <li><a href="#about" class="nav-link">About Us</a></li>
+          <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Sections will go here (Home, About, Services, Contact) -->
+      <!-- Hero/ Home Section -->
+      <section class="hero" id="home">
+        <!-- Background Image Carousel -->
+        <div class="hero-carousel">
+          <div
+            class="carousel-item active"
+            style="background-image: url('assets/hero-1.jpg')"
+          ></div>
+          <div
+            class="carousel-item"
+            style="background-image: url('assets/hero-2.jpg')"
+          ></div>
+          <div
+            class="carousel-item"
+            style="background-image: url('assets/hero-3.jpg')"
+          ></div>
+        </div>
+
+        <!-- Dark Overlay -->
+        <div class="hero-overlay"></div>
+
+        <!-- Hero Content -->
+        <div class="hero-content">
+          <h1 class="hero-title">
+            Plan your pefrect getaway with expert help.
+          </h1>
+          <p class="hero-subtitle">
+            Chat with our travel consultant and start planning today.
+          </p>
+
+          <!-- CTA Buttons -->
+          <div class="cta-group">
+            <a
+              href="https://wa.me/2348000000000"
+              target="_blank"
+              class="cta-primary"
+            >
+              <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+            </a>
+
+            <button id="open-form" class="cta-secondary">
+              Prefer to fill out an application?
+            </button>
+          </div>
+        </div>
+        <!-- Form Modal (Hidden by default) -->
+        <div class="form-modal" id="form-modal">
+          <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <!-- Form will be inserted here later -->
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
