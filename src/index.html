@@ -55,6 +55,58 @@
 
     <main>
       <!-- Sections will go here (Home, About, Services, Contact) -->
+      <!-- Hero/ Home Section -->
+      <section class="hero" id="home">
+        <!-- Background Image Carousel -->
+        <div class="hero-carousel">
+          <div
+            class="carousel-item active"
+            style="background-image: url('public/assets/hero-1.jpg')"
+          ></div>
+          <div
+            class="carousel-item"
+            style="background-image: url('public/assets/hero-2.jpg')"
+          ></div>
+          <div
+            class="carousel-item"
+            style="background-image: url('public/assets/hero-3.jpg')"
+          ></div>
+        </div>
+
+        <!-- Dark Overlay -->
+        <div class="hero-overlay"></div>
+
+        <!-- Hero Content -->
+        <div class="hero-content">
+          <h1 class="hero-title">
+            Plan your pefrect getaway with expert help.
+          </h1>
+          <p class="hero-subtitle">
+            Chat with our travel consultant and start planning today.
+          </p>
+
+        <!-- CTA Buttons -->
+    <div class="cta-group">
+        <a
+        href="https://wa.me/2348000000000"
+        target="_blank"
+        class="cta-primary"
+        >
+        <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+        </a>
+    
+        <button id="open-form" class="cta-secondary">
+        Prefer to fill out an application?
+        </button>
+    </div>
+        <!-- Form Modal (Hidden by default) -->
+        <div class="form-modal" id="form-modal">
+          <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <!-- Form will be inserted here later -->
+          </div>
+        </div>
+      </section>
     </main>
 
     <script src="js/script.js"></script>

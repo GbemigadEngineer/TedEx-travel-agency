@@ -1,61 +1,293 @@
-/* Reset & Base Styles */
+/* ----- Base Styles ----- */
+:root {
+  --primary-color: #00296b; /* Bold blue for trust */
+  --accent-color: #ef233c; /* Vibrant red for CTAs */
+  --neutral-light: #edf2f4; /* Soft off-white */
+  --text-color: #2b2d42; /* Dark gray for readability */
+  --navbar-bg: #ffffff; /* Clean white navbar */
+  --box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-:root {
-  --primary-color: #25d366; /* WhatsApp Green */
-  --text-color: #333;
-  --font-primary: "Arial", sans-serif;
-}
-
 body {
-  font-family: var(--font-primary);
-  line-height: 1.6;
-  color: var(--text-color);
+  font-family: "Arial", sans-serif;
 }
 
-/* Header */
-header {
-  padding: 1rem;
-  text-align: center;
+/* ----- Navbar Styles ----- */
+.navbar {
+  background: var(--navbar-bg);
+  box-shadow: var(--box-shadow);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
 }
 
-.logo {
-  width: 150px; /* Adjust based on client's logo */
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo */
+.logo-img {
+  width: 160px; /* Adjust based on client’s logo */
   height: auto;
 }
 
-/* Hero Section */
-.hero {
-  text-align: center;
-  padding: 4rem 1rem;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("public/assets/hero-bg.jpg");
-  background-size: cover;
-  color: white;
+/* Desktop Menu */
+.desktop-menu {
+  display: none; /* Hidden on mobile */
 }
 
-.cta-button {
-  display: inline-block;
-  padding: 1rem 2rem;
-  background-color: var(--primary-color);
-  color: white;
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-link {
   text-decoration: none;
-  border-radius: 5px;
-  margin-top: 1rem;
-  transition: opacity 0.3s;
+  color: var(--text-color);
+  font-weight: 600;
+  transition: color 0.3s;
 }
 
-.cta-button:hover {
-  opacity: 0.9;
+.nav-link:hover {
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--accent-color);
 }
 
-/* Mobile-First Media Queries */
+/* Mobile Hamburger */
+.hamburger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hamburger-line {
+  width: 25px;
+  height: 2px;
+  background: var(--text-color);
+  transition: transform 0.3s;
+}
+
+/* Mobile Menu (Hidden by default) */
+.mobile-menu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  background: var(--neutral-light);
+  box-shadow: var(--box-shadow);
+}
+
+.mobile-menu .nav-links {
+  flex-direction: column;
+  padding: 1rem 2rem;
+  gap: 1rem;
+}
+
+/* Active state for mobile menu */
+.mobile-menu.active {
+  max-height: 300px;
+}
+
+/* Media Queries for Desktop */
 @media (min-width: 768px) {
-  .hero h1 {
-    font-size: 2.5rem;
+  .desktop-menu {
+    display: block; /* Show desktop menu */
+  }
+
+  .hamburger {
+    display: none; /* Hide hamburger on desktop */
+  }
+
+  .mobile-menu {
+    display: none; /* Hide mobile menu on desktop */
+  }
+}
+
+/* ----- Hero Section ----- */
+.hero {
+  background: linear-gradient(
+      rgba(0, 41, 107, 0.8),
+      /* Primary blue overlay */ rgba(0, 41, 107, 0.8)
+    ),
+    url("public/assets/hero-1.jpg");
+  background-size: cover;
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Carousel */
+.hero-carousel {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-item {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+
+.carousel-item.active {
+  opacity: 1;
+}
+
+/* Overlay */
+.hero-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+/* Hero Content */
+.hero-content {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding: 0 1.5rem;
+}
+
+.hero-title {
+  color: var(--neutral-light); /* Off-white text */
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  animation: fadeInUp 1s ease;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  animation: fadeInUp 1s ease 0.3s;
+  animation-fill-mode: backwards;
+}
+
+/* CTA Buttons */
+.cta-group {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  animation: fadeInUp 1s ease 0.6s;
+  animation-fill-mode: backwards;
+}
+
+.cta-primary {
+  background: var(--accent-color);
+  color: white;
+  padding: 1rem 2rem;
+  border: 2px solid transparent;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.cta-secondary {
+  background: transparent;
+  border: 2px solid var(--accent-color);
+  color: var(--neutral-light);
+  padding: 1rem 2rem;
+  text-decoration: none;
+  backdrop-filter: blur(5px);
+  transition: background 0.3s;
+}
+
+.cta-primary:hover {
+  background: transparent;
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.cta-secondary:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Form Modal */
+.form-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1001;
+}
+
+.modal-content {
+  background: white;
+  max-width: 500px;
+  margin: 5% auto;
+  padding: 2rem;
+  border-radius: 10px;
+  position: relative;
+}
+
+.close-modal {
+  position: absolute;
+  color: black;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .cta-group {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .cta-primary,
+  .cta-secondary {
+    width: 100%;
+    text-align: center;
   }
 }
