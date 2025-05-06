@@ -3,40 +3,60 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TedEx Travel Agency</title>
+    <title>Travel Agency Landing Page</title>
     <link rel="stylesheet" href="css/style.css" />
+    <!-- Font Awesome for icons (optional) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
   </head>
   <body>
-    <!-- Header with Logo -->
-    <header>
-      <img
-        src="public/assets/logo-light.svg"
-        alt="Ted Ex Travel Agency Logo"
-        class="logo"
-      />
+    <!-- Navbar -->
+    <header class="navbar">
+      <div class="navbar-container">
+        <!-- Logo -->
+        <a href="#" class="logo">
+          <img
+            src="public/assets/logo.svg"
+            alt="Travel Agency Logo"
+            class="logo-img"
+          />
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="desktop-menu">
+          <ul class="nav-links">
+            <li><a href="#home" class="nav-link">Home</a></li>
+            <li><a href="#about" class="nav-link">About Us</a></li>
+            <li><a href="#services" class="nav-link">Services</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+          </ul>
+        </nav>
+
+        <!-- Mobile Hamburger Menu -->
+        <button class="hamburger" aria-label="Toggle navigation">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+
+      <!-- Mobile Navigation (Hidden by default) -->
+      <nav class="mobile-menu">
+        <ul class="nav-links">
+          <li><a href="#home" class="nav-link">Home</a></li>
+          <li><a href="#about" class="nav-link">About Us</a></li>
+          <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
     </header>
 
-    <!-- Hero Section with CTA -->
-    <section class="hero">
-      <h1>Your Dream Vacation Starts Here</h1>
-      <a href="https://wa.me/2348123456789" class="cta-button"
-        >Chat on WhatsApp</a
-      >
-    </section>
+    <main>
+      <!-- Sections will go here (Home, About, Services, Contact) -->
+    </main>
 
-    <!-- Services Section (Placeholder) -->
-    <section class="services">
-      <!-- Client to provide services list later -->
-    </section>
-
-    <!-- Application Form (Placeholder) -->
-    <section class="application-form">
-      <!-- Netlify Form will go here -->
-    </section>
-
-    <!-- Footer with Contact Info -->
-    <footer>
-      <!-- Client to provide social links later -->
-    </footer>
+    <script src="js/script.js"></script>
   </body>
 </html>
