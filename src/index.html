@@ -96,7 +96,7 @@
             </a>
 
             <button id="open-form" class="cta-secondary">
-              Prefer to fill out an application?
+              Prefer to fill out our User applicants form?
             </button>
           </div>
         </div>
@@ -105,6 +105,82 @@
           <div class="modal-content">
             <span class="close-modal">&times;</span>
             <!-- Form will be inserted here later -->
+            <form name="contact" method="POST" netlify>
+              <!-- Full Name -->
+              <div class="form-group">
+                <label for="full-name">Full Name *</label>
+                <input type="text" id="full-name" name="full-name" required />
+              </div>
+
+              <!-- Email -->
+              <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" required />
+              </div>
+
+              <!-- Phone -->
+              <div class="form-group">
+                <label for="phone">Phone Number *</label>
+                <input type="tel" id="phone" name="phone" required />
+              </div>
+
+              <!-- Nationality -->
+              <div class="form-group">
+                <label for="nationality">Nationality *</label>
+                <input
+                  type="text"
+                  id="nationality"
+                  name="nationality"
+                  required
+                />
+              </div>
+
+              <!-- Area of Interest Dropdown -->
+              <div class="form-group">
+                <label for="interest">Area of Interest *</label>
+                <select id="interest" name="interest" required>
+                  <option value="">Choose service...</option>
+                  <option value="Study visa">Study visa</option>
+                  <option value="Dependent options">Dependent options</option>
+                  <option value="University placements">
+                    University placements
+                  </option>
+                  <option value="Certificate of Sponsorship">
+                    Certificate of Sponsorship
+                  </option>
+                  <option value="Work permit processing">
+                    Work permit processing
+                  </option>
+                  <option value="Specialized career paths">
+                    Specialized career paths
+                  </option>
+                  <option value="Malta work permit">Malta work permit</option>
+                  <option value="Albania Conference packages">
+                    Albania Conference and work permit packages
+                  </option>
+                  <option value="Poland study visas">Poland study visas</option>
+                  <option value="Document processing">
+                    Document processing
+                  </option>
+                  <option value="Training services">Training services</option>
+                  <option value="Travel arrangements">
+                    Seamless travel arrangement
+                  </option>
+                </select>
+              </div>
+
+              <!-- Message -->
+              <div class="form-group">
+                <label for="message">Message/Inquiry</label>
+                <textarea id="message" name="message" rows="4"></textarea>
+              </div>
+
+              <!-- Hidden Field for Netlify -->
+              <input type="hidden" name="form-name" value="contact" />
+
+              <!-- Submit Button -->
+              <button type="submit">Send Inquiry</button>
+            </form>
           </div>
         </div>
       </section>
