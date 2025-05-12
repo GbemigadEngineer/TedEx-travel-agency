@@ -67,7 +67,7 @@ async function handleSubmit(event) {
       successModal.style.display = "none";
     }, 5000);
 
-    // Reset form
+    // Reset form 
     event.target.reset();
   } catch (error) {
     alert("Error submiting form. Please ty again!");

@@ -26,21 +26,40 @@ body {
   width: 100%;
   top: 0;
   z-index: 1000;
+  height: 70px; /* Fixed height */
 }
 
 .navbar-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 100%; /* Inherit navbar height */
+  padding: 0.5rem 2rem; /* Reduce vertical padding */
 }
 
 /* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  height: 100%; /* Match navbar height */
+}
+
 .logo-img {
-  width: 160px; /* Adjust based on client’s logo */
-  height: auto;
+  height: 45px; /* Fixed height */
+  width: auto; /* Maintain aspect ratio */
+  max-width: 160px; /* Prevent overflow */
+  display: block; /* Remove inline spacing */
+  padding: 0;
+  margin: 0;
+  transition: all 0.3s ease;
+}
+
+@media (hover: hover) {
+  .logo-img:hover {
+    transform: scale(1.05);
+  }
 }
 
 /* Desktop Menu */
@@ -116,6 +135,15 @@ body {
 
   .mobile-menu {
     display: none; /* Hide mobile menu on desktop */
+
+    .navbar {
+      height: 60px; /* Slightly smaller on mobile */
+    }
+
+    .logo-img {
+      height: 35px;
+      max-width: 120px;
+    }
   }
 }
 
