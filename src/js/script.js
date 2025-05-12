@@ -65,7 +65,7 @@ async function handleSubmit(event) {
     //  Auto-close after 3 seconds
     setTimeout(() => {
       successModal.style.display = "none";
-    }, 3000);
+    }, 5000);
 
     // Reset form
     event.target.reset();
