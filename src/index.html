@@ -107,7 +107,9 @@
             <!-- Form will be inserted here later -->
             <h2>Client Application Form</h2>
             <form name="contact" method="POST" netlify>
-             
+              <!-- Your existing form fields -->
+              <input type="hidden" name="form-name" value="contact" />
+
               <!-- Full Name -->
               <div class="form-group">
                 <label for="full-name" id="full-name-label">Full Name *</label>
@@ -181,8 +183,17 @@
               <input type="hidden" name="form-name" value="contact" />
 
               <!-- Submit Button -->
-              <button type="submit">Send Inquiry</button>
+              <button type="submit" id="submit-button">Submit</button>
             </form>
+          </div>
+        </div>
+        <!-- Sucess Modal -->
+        <div class="success-modal" id="success-modal">
+          <div class="success-content">
+            <span class="close-success">&times;</span>
+            <div class="success-icon">✓</div>
+            <h2>Success!</h2>
+            <p>Your form has been submitted successfully!</p>
           </div>
         </div>
       </section>
