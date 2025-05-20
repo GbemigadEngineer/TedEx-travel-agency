@@ -8,81 +8,110 @@ hamburger.addEventListener("click", () => {
   hamburger.classList.toggle("active");
 });
 
-// Carousel Logic
-let currentSlide = 0;
-const slides = document.querySelectorAll(".carousel-item");
+// Update existing JS to handle all form triggers
+const formTriggers = document.querySelectorAll(".nav-cta, .open-form");
+const formModal = document.querySelector(".form-modal");
+const closeModalBtn = document.querySelector(".close-modal");
 
-function nextSlide() {
-  slides[currentSlide].classList.remove("active");
-  currentSlide = (currentSlide + 1) % slides.length;
-  slides[currentSlide].classList.add("active");
+// Open modal
+formTriggers.forEach((trigger) => {
+  trigger.addEventListener("click", (e) => {
+    e.preventDefault();
+    formModal.classList.add("visible");
+    document.body.style.overflow = "hidden";
+  });
+});
+
+// Close modal
+function closeModal() {
+  formModal.classList.remove("visible");
+  document.body.style.overflow = "auto";
+  document.documentElement.style.paddingRight = "0";
 }
 
-// Change slide every 5 seconds
-setInterval(nextSlide, 5000);
-
-// Modal Logic
-const openFormBtn = document.getElementById("open-form");
-const formModal = document.getElementById("form-modal");
-const closeModal = document.querySelector(".close-modal");
-
-openFormBtn.addEventListener("click", () => {
-  formModal.style.display = "block";
+// Update close button event listener
+closeModalBtn.addEventListener("click", (event) => {
+  event.preventDefault();
+  closeModal();
 });
 
-closeModal.addEventListener("click", () => {
-  formModal.style.display = "none";
-});
-
-// Close modal when clicking outside
-window.addEventListener("click", (e) => {
-  if (e.target === formModal) {
-    formModal.style.display = "none";
+// Add click outside handler
+formModal.addEventListener("click", (e) => {
+  if (e.target.classList.contains("modal-overlay")) {
+    closeModal();
   }
 });
 
-// FORM SUBMITION SUCCESS HANDLER
-const form = document.querySelector('form[name="contact"]');
-const successModal = document.getElementById("success-modal");
-const closeSuccess = document.querySelector(".close-success");
+// Rest of the close handlers remain the same...
 
-// Modified form submission handler
-async function handleSubmit(event) {
-  event.preventDefault();
-  const formData = new FormData(event.target);
+// Form Submission Handling
+const form = document.querySelector(".application-form");
+const successModal = document.querySelector(".success-modal");
+let timeoutId;
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
   try {
+    const formData = new FormData(form);
+
+    // Submit to Netlify
     await fetch("/", {
       method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: new URLSearchParams(formData).toString(),
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
     });
+
     // Close form modal
-    formModal.style.display = "none";
+    closeModal();
 
     // Show success modal
-    successModal.style.display = "block";
+    successModal.classList.add("visible");
+    document.body.style.overflow = "hidden";
 
-    //  Auto-close after 3 seconds
-    setTimeout(() => {
-      successModal.style.display = "none";
+    // Set timeout to close
+    timeoutId = setTimeout(() => {
+      closeSuccessModal();
     }, 5000);
-
-    // Reset form 
-    event.target.reset();
   } catch (error) {
-    alert("Error submiting form. Please ty again!");
+    console.error("Submission error:", error);
   }
-}
-
-// Event Listeners
-form.addEventListener("submit", handleSubmit);
-closeSuccess.addEventListener("click", () => {
-  successModal.style.display = "none";
 });
 
-// Close success modal when clicking outside
-window.addEventListener("click", (event) => {
-  if (event.target === successModal) {
-    successModal.style.display = "none";
+// Success Modal Handling
+function closeSuccessModal() {
+  successModal.classList.remove("visible");
+  document.body.style.overflow = "auto";
+  clearTimeout(timeoutId);
+}
+
+// Close handlers for success modal
+document
+  .querySelectorAll(
+    ".success-modal .close-modal, .success-modal .modal-overlay"
+  )
+  .forEach((element) => {
+    element.addEventListener("click", closeSuccessModal);
+  });
+
+// ESC key handler for both modals
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    closeModal();
+    closeSuccessModal();
+  }
+});
+
+// Add loading state during submission
+form.addEventListener("submit", async (e) => {
+  const submitBtn = form.querySelector(".submit-btn");
+
+  try {
+    submitBtn.classList.add("loading");
+    // ... rest of submission code
+  } finally {
+    submitBtn.classList.remove("loading");
   }
 });

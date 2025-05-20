@@ -4,7 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Travel Agency Landing Page</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Nunito+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/css/style.css" />
     <!-- Font Awesome for icons (optional) -->
     <link
       rel="stylesheet"
@@ -19,8 +23,7 @@
         <a href="#" class="logo">
           <img
             src="./assets/TEDEX LOGO.png"
-            srcset="/assets/TEDEX LOGO@2x.png 2x, /assets/logo@3x.png 3x"
-            alt="Travel Agency Logo"
+            alt="TEDEX Logo"
             class="logo-img"
           />
         </a>
@@ -29,107 +32,148 @@
         <nav class="desktop-menu">
           <ul class="nav-links">
             <li><a href="#home" class="nav-link">Home</a></li>
-            <li><a href="#about" class="nav-link">About Us</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
             <li><a href="#services" class="nav-link">Services</a></li>
             <li><a href="#contact" class="nav-link">Contact</a></li>
+            <li><a href="#form" class="nav-cta">Start Application</a></li>
           </ul>
         </nav>
 
-        <!-- Mobile Hamburger Menu -->
-        <button class="hamburger" aria-label="Toggle navigation">
+        <!-- Mobile Toggle -->
+        <button class="hamburger">
           <span class="hamburger-line"></span>
           <span class="hamburger-line"></span>
           <span class="hamburger-line"></span>
         </button>
       </div>
 
-      <!-- Mobile Navigation (Hidden by default) -->
+      <!-- Mobile Menu -->
       <nav class="mobile-menu">
         <ul class="nav-links">
           <li><a href="#home" class="nav-link">Home</a></li>
-          <li><a href="#about" class="nav-link">About Us</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
           <li><a href="#services" class="nav-link">Services</a></li>
           <li><a href="#contact" class="nav-link">Contact</a></li>
+          <li><a href="#form" class="nav-cta">Start Application</a></li>
         </ul>
       </nav>
     </header>
 
     <main>
-      <!-- Sections will go here (Home, About, Services, Contact) -->
-      <!-- Hero/ Home Section -->
-      <section class="hero" id="home">
-        <!-- Background Image Carousel -->
-        <div class="hero-carousel">
-          <div
-            class="carousel-item active"
-            style="background-image: url('assets/hero-1.jpg')"
-          ></div>
-          <div
-            class="carousel-item"
-            style="background-image: url('assets/hero-2.jpg')"
-          ></div>
-          <div
-            class="carousel-item"
-            style="background-image: url('assets/hero-3.jpg')"
-          ></div>
-        </div>
-
-        <!-- Dark Overlay -->
-        <div class="hero-overlay"></div>
-
-        <!-- Hero Content -->
-        <div class="hero-content">
-          <h1 class="hero-title">
-            Plan your pefrect getaway with expert help.
-          </h1>
-          <p class="hero-subtitle">
-            Chat with our travel consultant and start planning today.
-          </p>
-
-          <!-- CTA Buttons -->
-          <div class="cta-group">
-            <a
-              href="https://wa.me/2348000000000"
-              target="_blank"
-              class="cta-primary"
-            >
-              <i class="fab fa-whatsapp"></i> Chat on WhatsApp
-            </a>
-
-            <button id="open-form" class="cta-secondary">
-              Prefer to fill out our User applicants form?
-            </button>
+      <!-- Hero Section -->
+      <section class="hero">
+        <div class="hero-container">
+          <div class="hero-content">
+            <h1 class="hero-headline">Smart Travel Starts with TEDEX.</h1>
+            <p class="hero-subtitle">
+              Expert visa assistance and travel planning that saves you time
+              while ensuring perfection.
+            </p>
+            <div class="hero-cta-group">
+              <a href="https://wa.me/yournumber" class="cta-button primary-cta">
+                <i class="fa-brands fa-whatsapp"></i>
+                Instant WhatsApp Consultation
+              </a>
+              <button class="cta-button secondary-cta open-form">
+                <i class="fa-regular fa-pen-to-square"></i>
+                Start Visa Application Now
+              </button>
+            </div>
+          </div>
+          <div class="hero-illustration">
+            <img
+              src="./assets/illu6.jpg"
+              alt="Hero Illustration"
+              class="illustration-img"
+            />
           </div>
         </div>
-        <!-- Form Modal (Hidden by default) -->
-        <div class="form-modal" id="form-modal">
-          <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <!-- Form will be inserted here later -->
-            <h2>Client Application Form</h2>
-            <form name="contact" method="POST" netlify>
-              <!-- Your existing form fields -->
-              <input type="hidden" name="form-name" value="contact" />
+      </section>
+      <!-- About Section -->
+      <section class="about">
+        <div class="section-container">
+          <!-- Section Header -->
+          <h2 class="section-title">Who Are We?</h2>
 
-              <!-- Full Name -->
+          <!-- Introductory Content -->
+          <p class="about-intro">
+            TEDEX CONSULTING LIMITED is a premier travel agency and global
+            mobility consultancy specializing in providing sponsored travel
+            opportunities for individuals seeking to study and work abroad.
+            Established in Lagos, Nigeria, the company offers comprehensive visa
+            processing services and travel solutions to destinations
+            worldwide.<br /><br />
+            With a focus on facilitating international education and career
+            advancement, TEDEX CONSULTING LIMITED serves as a bridge connecting
+            ambitious individuals with life-changing opportunities abroad. The
+            company's expertise lies in navigating complex visa processes,
+            securing Certificates of Sponsorship (COS), and creating reliable
+            travel routes for clients.
+          </p>
+
+          <!-- Mission/Vision Cards -->
+          <div class="card-container">
+            <div class="about-card vision-card">
+              <div class="card-icon">
+                <i class="fa-solid fa-binoculars"></i>
+              </div>
+              <h3 class="card-title">Our Vision</h3>
+              <p class="card-text">
+                To be the premier global mobility facilitator, transforming
+                lives through seamless international education and career
+                opportunities.
+              </p>
+            </div>
+
+            <div class="about-card mission-card">
+              <div class="card-icon">
+                <i class="fa-solid fa-rocket"></i>
+              </div>
+              <h3 class="card-title">Our Mission</h3>
+              <p class="card-text">
+                At TEDEX CONSULTING LIMITED, we are committed to connecting
+                ambitious individuals with life-changing international
+                opportunities through expert visa consulting, personalized
+                travel solutions, and dedicated sponsorship services.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Application Form Modal -->
+      <div class="form-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-container">
+          <button class="close-modal">&times;</button>
+          <div class="modal-content">
+            <h2 class="modal-title">Visitor Application Form</h2>
+            <form
+              name="visitor-application"
+              method="POST"
+              netlify
+              class="application-form"
+            >
+              <input
+                type="hidden"
+                name="form-name"
+                value="visitor-application"
+              />
+
               <div class="form-group">
-                <label for="full-name" id="full-name-label">Full Name *</label>
+                <label for="full-name">Full Name *</label>
                 <input type="text" id="full-name" name="full-name" required />
               </div>
 
-              <!-- Email -->
               <div class="form-group">
                 <label for="email">Email Address *</label>
                 <input type="email" id="email" name="email" required />
               </div>
 
-              <!-- Phone -->
               <div class="form-group">
                 <label for="phone">Phone Number *</label>
                 <input type="tel" id="phone" name="phone" required />
               </div>
 
-              <!-- Nationality -->
               <div class="form-group">
                 <label for="nationality">Nationality *</label>
                 <input
@@ -140,64 +184,66 @@
                 />
               </div>
 
-              <!-- Area of Interest Dropdown -->
               <div class="form-group">
                 <label for="interest">Area of Interest *</label>
                 <select id="interest" name="interest" required>
-                  <option value="">Choose service...</option>
-                  <option value="Study visa">Study visa</option>
-                  <option value="Dependent options">Dependent options</option>
-                  <option value="University placements">
-                    University placements
-                  </option>
-                  <option value="Certificate of Sponsorship">
-                    Certificate of Sponsorship
-                  </option>
-                  <option value="Work permit processing">
-                    Work permit processing
-                  </option>
-                  <option value="Specialized career paths">
-                    Specialized career paths
-                  </option>
-                  <option value="Malta work permit">Malta work permit</option>
-                  <option value="Albania Conference packages">
-                    Albania Conference and work permit packages
-                  </option>
-                  <option value="Poland study visas">Poland study visas</option>
-                  <option value="Document processing">
-                    Document processing
-                  </option>
-                  <option value="Training services">Training services</option>
-                  <option value="Travel arrangements">
-                    Seamless travel arrangement
-                  </option>
+                  <option value="">Select Service</option>
+                  <option>Student Visa Processing</option>
+                  <option>Dependent Options</option>
+                  <option>University Placement</option>
+                  <option>Certificate of Sponsorship (COS)</option>
+                  <option>Work Permit Processing</option>
+                  <option>Specialized Career Paths</option>
+                  <option>Malta Work Permits</option>
+                  <option>Albania Conference & Work Permit Packages</option>
+                  <option>Poland Study Visas</option>
+                  <option>Expert Travel Consulting</option>
+                  <option>Documented Processing</option>
+                  <option>Training Services</option>
+                  <option>Seamless Travel Arrangements</option>
                 </select>
               </div>
 
-              <!-- Message -->
               <div class="form-group">
-                <label for="message">Message/Inquiry</label>
-                <textarea id="message" name="message" rows="4"></textarea>
+                <label for="message">Additional Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="4"
+                  placeholder="Any additional information or special requests"
+                ></textarea>
               </div>
 
-              <!-- Hidden Field for Netlify -->
-              <input type="hidden" name="form-name" value="contact" />
+              <div class="form-note">
+                <p>* Required fields</p>
+              </div>
 
-              <!-- Submit Button -->
-              <button type="submit" id="submit-button">Submit</button>
+              <button type="submit" class="submit-btn">
+                <i class="fa-solid fa-paper-plane"></i>
+                Submit Application
+              </button>
             </form>
           </div>
         </div>
-        <!-- Sucess Modal -->
-        <div class="success-modal" id="success-modal">
-          <div class="success-content">
-            <span class="close-success">&times;</span>
-            <div class="success-icon">✓</div>
-            <h2>Success!</h2>
-            <p>Your form has been submitted successfully!</p>
+      </div>
+
+      <!-- Success Modal -->
+      <div class="success-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-container">
+          <button class="close-modal">&times;</button>
+          <div class="modal-content">
+            <div class="success-icon">
+              <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <h2 class="modal-title">Application Received!</h2>
+            <p class="success-message">
+              Thank you for submitting your application. Our team will review
+              your information and reach out to you within 24 hours.
+            </p>
           </div>
         </div>
-      </section>
+      </div>
     </main>
 
     <script src="js/script.js"></script>
