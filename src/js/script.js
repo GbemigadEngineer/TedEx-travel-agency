@@ -104,29 +104,32 @@ setupModalClose(successModal);
 setupModalClose(errorModal);
 
 // Smooth scrolling implementation for navigation links
-
 document.querySelectorAll(".nav-link").forEach((link) => {
   link.addEventListener("click", function (event) {
     event.preventDefault();
 
-    // Close mobile menu if it is open
-    mobileMenu.classList.remove("active");
-    hamburger.classList.remove("active");
+    // close mobile menu if open
+    if (mobileMenu.classList.contains("active")) {
+      mobileMenu.classList.remove("active");
+      hamburger.classList.remove("active");
+    }
 
-    const href = this.getAttribute("href");
-    const target = document.querySelector(href);
-    if (target) {
-      // Smooth scroll to the target section
-      target.scrollIntoView({
+    const targetId = this.getAttribute("href").substring(1);
+    const targetSection = document.getElementById(targetId);
+
+    if (targetSection) {
+      // Calculate position with navbar offset
+      const navbarHeight = document.querySelector(".navbar").offsetHeight;
+      const targetPosition = targetSection.offsetTop - navbarHeight;
+
+      // Smooth scroll
+      window.scrollTo({
+        top: targetPosition,
         behavior: "smooth",
-        block: "start",
       });
-      // Update the URL hash without jumping
-      if (history.pushState) {
-        history.pushState(null, null, href);
-      } else {
-        location.hash = href;
-      }
+
+      // Update URL without jumping
+      history.pushState(null, null, `#${targetId}`);
     }
   });
 });

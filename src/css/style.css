@@ -20,6 +20,12 @@
 /* Add to existing CSS */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 100px; /* Adjust based on your navbar height */
+}
+@media (min-width: 768px) {
+  html {
+    scroll-padding-top: 80px; /* Adjust for desktop navbar height */
+  }
 }
 
 body {
