@@ -13,6 +13,7 @@ const formTriggers = document.querySelectorAll(".nav-cta, .open-form");
 const formModal = document.querySelector(".form-modal");
 const successModal = document.querySelector(".success-modal");
 const errorModal = document.querySelector(".error-modal");
+const form = document.querySelector(".form-modal form");
 let timeoutId;
 
 // Modal Functions
