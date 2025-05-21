@@ -102,3 +102,31 @@ form.addEventListener("submit", async (e) => {
 setupModalClose(formModal);
 setupModalClose(successModal);
 setupModalClose(errorModal);
+
+// Smooth scrolling implementation for navigation links
+
+document.querySelectorAll(".nav-link").forEach((link) => {
+  link.addEventListener("click", function (event) {
+    event.preventDefault();
+
+    // Close mobile menu if it is open
+    mobileMenu.classList.remove("active");
+    hamburger.classList.remove("active");
+
+    const href = this.getAttribute("href");
+    const target = document.querySelector(href);
+    if (target) {
+      // Smooth scroll to the target section
+      target.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+      // Update the URL hash without jumping
+      if (history.pushState) {
+        history.pushState(null, null, href);
+      } else {
+        location.hash = href;
+      }
+    }
+  });
+});
