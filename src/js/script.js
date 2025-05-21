@@ -74,10 +74,13 @@ form.addEventListener("submit", async (e) => {
 
   try {
     submitBtn.classList.add("loading");
+    // Convert form data to URLSearchParams
+    const formData = new FormData(form);
+    const encodedData = new URLSearchParams(formData).toString();
     const response = await fetch("/", {
       method: "POST",
-      body: new URLSearchParams(new FormData(form)),
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encodedData,
     });
 
     if (response.ok) {

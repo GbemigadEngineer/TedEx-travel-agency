@@ -1051,3 +1051,8 @@ select {
 .ok-button:hover {
   transform: translateY(-2px);
 }
+
+.hidden {
+  display: none;
+  visibility: hidden;
+}

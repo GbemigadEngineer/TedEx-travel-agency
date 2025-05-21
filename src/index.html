@@ -150,9 +150,8 @@
             <h2 class="modal-title">Visitor Application Form</h2>
             <form
               name="visitor-application"
-              method="POST"
-              netlify
               class="application-form"
+              data-netlify="true"
             >
               <input
                 type="hidden"
@@ -223,6 +222,12 @@
                 <i class="fa-solid fa-paper-plane"></i>
                 Submit Application
               </button>
+              <div class="hidden">
+                <label
+                  >Don't fill this out if you're human:
+                  <input name="bot-field" />
+                </label>
+              </div>
             </form>
           </div>
         </div>
