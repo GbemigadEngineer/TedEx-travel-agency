@@ -99,5 +99,6 @@ form.addEventListener("submit", async (e) => {
 });
 
 // Initialize modal handlers
+setupModalClose(formModal);
 setupModalClose(successModal);
 setupModalClose(errorModal);
