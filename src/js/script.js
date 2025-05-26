@@ -13,7 +13,7 @@ const formTriggers = document.querySelectorAll(".nav-cta, .open-form");
 const formModal = document.querySelector(".form-modal");
 const successModal = document.querySelector(".success-modal");
 const errorModal = document.querySelector(".error-modal");
-const form = document.querySelector(".form-modal form");
+const forms = document.querySelectorAll("application-form");
 let timeoutId;
 
 // Modal Functions
@@ -69,33 +69,35 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const submitBtn = form.querySelector(".submit-btn");
+forms.forEach((form) => {
+  forms.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const submitBtn = form.querySelector(".submit-btn");
 
-  try {
-    submitBtn.classList.add("loading");
-    // Convert form data to URLSearchParams
-    const formData = new FormData(form);
-    const encodedData = new URLSearchParams(formData).toString();
-    const response = await fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encodedData,
-    });
+    try {
+      submitBtn.classList.add("loading");
+      // Convert form data to URLSearchParams
+      const formData = new FormData(form);
+      const encodedData = new URLSearchParams(formData).toString();
+      const response = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encodedData,
+      });
 
-    if (response.ok) {
-      form.reset();
-      showModal("success");
-    } else {
+      if (response.ok) {
+        form.reset();
+        showModal("success");
+      } else {
+        showModal("error");
+      }
+    } catch (error) {
+      console.error("Submission error:", error);
       showModal("error");
+    } finally {
+      submitBtn.classList.remove("loading");
     }
-  } catch (error) {
-    console.error("Submission error:", error);
-    showModal("error");
-  } finally {
-    submitBtn.classList.remove("loading");
-  }
+  });
 });
 
 // Initialize modal handlers
