@@ -1541,6 +1541,17 @@ select {
   gap: 1.5rem;
 }
 
+.copyright-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.developer-credit {
+  font-size: 0.9rem;
+  opacity: 0.7;
+  color: var(--neutral-100);
+}
 .copyright {
   font-size: 0.9rem;
   opacity: 0.7;
