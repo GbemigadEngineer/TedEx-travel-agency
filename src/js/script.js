@@ -14,7 +14,7 @@ const formModal = document.querySelector(".form-modal");
 const successModal = document.querySelector(".success-modal");
 const errorModal = document.querySelector(".error-modal");
 const form = document.querySelector(".form-modal form");
-
+const contactForm = document.querySelector("#contact .application-form");
 let timeoutId;
 
 // Modal Functions
@@ -134,3 +134,35 @@ document.querySelectorAll(".nav-link").forEach((link) => {
     }
   });
 });
+
+// Hanlde contact section form submission
+// Contact Form Handling
+
+if (contactForm) {
+  contactForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const submitBtn = contactForm.querySelector(".submit-btn");
+    const formData = new FormData(contactForm);
+
+    try {
+      submitBtn.classList.add("loading");
+      const response = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData).toString(),
+      });
+
+      if (response.ok) {
+        contactForm.reset();
+        showModal("success");
+      } else {
+        showModal("error");
+      }
+    } catch (error) {
+      console.error("Submission error:", error);
+      showModal("error");
+    } finally {
+      submitBtn.classList.remove("loading");
+    }
+  });
+}
