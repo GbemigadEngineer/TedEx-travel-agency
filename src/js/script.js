@@ -13,7 +13,8 @@ const formTriggers = document.querySelectorAll(".nav-cta, .open-form");
 const formModal = document.querySelector(".form-modal");
 const successModal = document.querySelector(".success-modal");
 const errorModal = document.querySelector(".error-modal");
-const forms = document.querySelectorAll("application-form");
+const form = document.querySelector(".form-modal form");
+
 let timeoutId;
 
 // Modal Functions
@@ -69,9 +70,9 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
-forms.addEventListener("submit", async (e) => {
+form.addEventListener("submit", async (e) => {
   e.preventDefault();
-  const submitBtn = forms.querySelector(".submit-btn");
+  const submitBtn = form.querySelector(".submit-btn");
 
   try {
     submitBtn.classList.add("loading");
