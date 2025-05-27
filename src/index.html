@@ -4,7 +4,28 @@
     <base href="/" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Travel Agency Landing Page</title>
+    <title>TEDEX CONSULTING - Global Visa & Travel Experts</title>
+    <meta
+      name="description"
+      content="TEDEX Consulting offers professional visa processing and travel solutions. Contact us at +234 906 087 3240"
+    />
+    <!-- Add schema markup -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "TravelAgency",
+        "name": "TEDEX Consulting Limited",
+        "image": "./assets/TEDEX LOGO.png",
+        "telephone": "+234 906 087 3240",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Adebola House (Suite 100, Rear Wing) 38 Opebi Road",
+          "addressLocality": "Ikeja-Lagos",
+          "addressCountry": "NG"
+        }
+      }
+    </script>
+
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Nunito+Sans:wght@400;600&display=swap"
       rel="stylesheet"
@@ -26,6 +47,7 @@
             src="./assets/TEDEX LOGO.png"
             alt="TEDEX Logo"
             class="logo-img"
+            loading="lazy"
           />
         </a>
 
@@ -174,7 +196,14 @@
 
               <div class="form-group">
                 <label for="phone">Phone Number *</label>
-                <input type="tel" id="phone" name="phone" required />
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  required
+                  pattern="[0-9] {10,15}"
+                  title="Phone number must be 10-15 digits"
+                />
               </div>
 
               <div class="form-group">
@@ -274,7 +303,7 @@
       </div>
     </main>
 
-    <!-- Add this after the About section -->
+    <!-- Services section -->
     <section class="services" id="services">
       <div class="section-container">
         <h2 class="section-title">Our Transformative Travel Solutions</h2>
@@ -287,7 +316,7 @@
                 <i class="fa-solid fa-briefcase card-icon"></i>
                 <img
                   src="./assets/illu13.jpg"
-                  alt="Work Opportunities"
+                  alt="Education & Study Abroad illustration"
                   class="card-illustration"
                 />
               </div>
@@ -319,7 +348,7 @@
                 <i class="fa-solid fa-briefcase card-icon"></i>
                 <img
                   src="./assets/illu11.jpg"
-                  alt="Work Opportunities"
+                  alt="Global Career Development illustration"
                   class="card-illustration"
                 />
               </div>
@@ -351,7 +380,7 @@
                 <i class="fa-solid fa-briefcase card-icon"></i>
                 <img
                   src="./assets/illu2.jpg"
-                  alt="Work Opportunities"
+                  alt="Destination-Specific Programs illustration"
                   class="card-illustration"
                 />
               </div>
@@ -376,7 +405,7 @@
                 <i class="fa-solid fa-briefcase card-icon"></i>
                 <img
                   src="./assets/illu14.jpg"
-                  alt="Work Opportunities"
+                  alt="Comprehensive Support illustration"
                   class="card-illustration"
                 />
               </div>
@@ -533,7 +562,7 @@
                   id="message"
                   name="message"
                   rows="4"
-                  placeholder="Any additional information or special requests"
+                  placeholder="Any additional information or special requests?"
                 ></textarea>
               </div>
 
@@ -566,13 +595,17 @@
               Transforming Global Mobility Through Expert Travel Solutions
             </p>
             <div class="social-links">
-              <a href="#" class="social-link">
+              <a href="#" class="social-link" aria-label="Facebook profile">
                 <i class="fa-brands fa-facebook-f"></i>
               </a>
-              <a href="#" class="social-link">
+              <a href="#" class="social-link" aria-label="linkedin Profile">
                 <i class="fa-brands fa-linkedin-in"></i>
               </a>
-              <a href="#" class="social-link">
+              <a
+                href="@tedex_ltd "
+                class="social-link"
+                aria-label="Instagram profile"
+              >
                 <i class="fa-brands fa-instagram"></i>
               </a>
             </div>
@@ -585,7 +618,6 @@
               <li><a href="#services" class="footer-link">Services</a></li>
               <li><a href="#about" class="footer-link">About Us</a></li>
               <li><a href="#contact" class="footer-link">Contact</a></li>
-              <li><a href="#form" class="footer-link">Application Form</a></li>
             </ul>
           </div>
 

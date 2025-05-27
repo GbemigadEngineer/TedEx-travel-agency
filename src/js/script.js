@@ -94,6 +94,13 @@ form.addEventListener("submit", async (e) => {
   } catch (error) {
     console.error("Submission error:", error);
     showModal("error");
+    // // Track error for with analytics
+    // if (typeof ga !== "undefined") {
+    //   ga("send", "exception", {
+    //     exDescription: error.message,
+    //     exFatal: false,
+    //   });
+    // }
   } finally {
     submitBtn.classList.remove("loading");
   }
@@ -167,10 +174,9 @@ if (contactForm) {
   });
 }
 
-
 // Auto-update copyright year
-document.addEventListener('DOMContentLoaded', () => {
-  const yearSpan = document.getElementById('current-year');
+document.addEventListener("DOMContentLoaded", () => {
+  const yearSpan = document.getElementById("current-year");
   if (yearSpan) {
     yearSpan.textContent = new Date().getFullYear();
   }

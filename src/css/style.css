@@ -26,12 +26,24 @@ html {
   html {
     scroll-padding-top: 80px; /* Adjust for desktop navbar height */
   }
+  .nav-link {
+    padding: 1rem 0;
+  }
+  .service-cta {
+    padding: 1.5rem;
+  }
 }
 
 body {
   font-family: "Arial", sans-serif;
   padding-top: 80px;
   background: var(--neutral-100);
+}
+
+@media (max-width: 767px) {
+  body {
+    padding-top: 70px;
+  }
 }
 
 /* ----- Navbar Styles ----- */
@@ -122,6 +134,7 @@ body {
   border-radius: var(--radius);
   font-weight: 600;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none !important;
 }
 
 .nav-cta:hover {
@@ -264,7 +277,7 @@ body {
 
 .hero-headline {
   font-family: "Montserrat", sans-serif;
-  font-size: 5.5rem;
+  font-size: 3rem;
   font-weight: 1700;
   line-height: 1.2;
   color: var(--primary-color);
@@ -428,6 +441,17 @@ body {
   }
 }
 
+@media (max-width: 767px) {
+  .cta-button {
+    padding: 1rem 1.5rem !important;
+    font-size: 0.9rem;
+  }
+
+  .hero-cta-group {
+    gap: 1rem;
+  }
+}
+
 /* Fix for 1024px range */
 @media (min-width: 992px) and (max-width: 1199px) {
   .hero-container {
@@ -500,7 +524,7 @@ body {
   }
 
   .hero-headline {
-    font-size: 4rem;
+    font-size: 3.5rem;
   }
 }
 @media (max-width: 767px) {
@@ -572,7 +596,7 @@ body {
 }
 @media (min-width: 1024px) {
   .hero-headline {
-    font-size: 4.5rem;
+    font-size: 4rem;
   }
 }
 
@@ -590,7 +614,7 @@ body {
 
 .section-title {
   font-family: "Montserrat", sans-serif;
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 700;
   color: var(--primary-color);
   text-align: center;
@@ -694,7 +718,7 @@ body {
   }
 
   .section-title {
-    font-size: 3.5rem;
+    font-size: 3rem;
   }
 
   .about-intro {
@@ -702,9 +726,20 @@ body {
   }
 }
 
+@media (max-width: 767px) {
+  .about-card {
+    text-align: center;
+    padding: 2rem;
+  }
+  .card-icon {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 @media (min-width: 1024px) {
   .section-title {
-    font-size: 4rem;
+    font-size: 3.5rem;
   }
 
   .about-card {
@@ -1065,7 +1100,7 @@ select {
 
 /* ----- Services Section ----- */
 .services {
-  padding: 6rem 0;
+  padding: 4rem 0;
   background: var(--neutral-200);
 }
 
@@ -1082,6 +1117,8 @@ select {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
   overflow: hidden;
+  -webkit-transform: translateY(-5px);
+  transform: translateY(-5px);
 }
 
 .service-card::before {
@@ -1185,6 +1222,9 @@ select {
 }
 
 @media (min-width: 768px) {
+  .services {
+    padding: 5rem 0;
+  }
   .services-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 2.5rem;
@@ -1207,7 +1247,7 @@ select {
 
 @media (max-width: 767px) {
   .service-card {
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
   }
 
   .service-list li {
@@ -1260,7 +1300,7 @@ select {
 
 /* ----- Contact Section ----- */
 .contact {
-  padding: 6rem 0;
+  padding: 4rem 0;
   background: var(--neutral-100);
   border-top: 1px solid rgba(0, 41, 107, 0.1);
 }
@@ -1380,7 +1420,11 @@ select {
     padding: 4rem 3rem;
   }
 }
-
+@media (min-width: 768px) {
+  .contact {
+    padding: 5rem 0;
+  }
+}
 @media (max-width: 768px) {
   .contact-item {
     flex-direction: column;
