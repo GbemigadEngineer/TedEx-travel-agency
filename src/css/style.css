@@ -38,6 +38,7 @@ body {
   font-family: "Arial", sans-serif;
   padding-top: 80px;
   background: var(--neutral-100);
+  overflow-x: hidden;
 }
 
 @media (max-width: 767px) {
